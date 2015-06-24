@@ -5,8 +5,7 @@ package hw_exeptions;
  */
 public class MyPersonalExeption extends RuntimeException {
     public MyPersonalExeption(String str){
-        //this();
-        System.out.println(str);
+        super(str);
     }
 
     public MyPersonalExeption(){

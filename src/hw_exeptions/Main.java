@@ -8,6 +8,8 @@ public class Main {
             test(i);
         } catch (MyPersonalExeption e) {
             //e.printStackTrace();
+            e.printStackTrace();
+            System.out.println("get message " + e.getMessage());
         } finally {
             i++;
             test(i);
@@ -17,7 +19,7 @@ public class Main {
 
     static public void test(int x) {
         if(x == 0){
-            throw new MyPersonalExeption();
+            throw new MyPersonalExeption("My---exeptions");
         } else {
             System.out.println("int x = " + x);
         }
