@@ -2,7 +2,7 @@ package Shapes;
 
 public class Launcher {
     public static void main(String[] args){
-        Shape [] shapes = new Shape[4];
+        Drawable [] shapes = new Shape[4];
 
         //shapes[0] = new Shape();
         shapes[0] = new Circle();
@@ -11,8 +11,6 @@ public class Launcher {
         shapes[3] = new Square();
 
         new ShapesTemplate(shapes);
-
-        new Circle().test();
 
     }
 }
