@@ -5,10 +5,10 @@ import java.awt.*;
 /**
  * Created by eco on 22.06.15.
  */
-public class Rectangle extends Shape{
+public class Rectangle extends Shape {
     @Override
-    protected void draw(Graphics g) {
-        System.out.println("Rectangle DRAW");
+    public void draw(Graphics g) {
+        printName();
         g.setColor(new Color(34, 0, 255));
         g.drawRect(9, 9, 301, 51);
         g.setColor(new Color(167, 255, 185));
