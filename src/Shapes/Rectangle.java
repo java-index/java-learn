@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * Created by eco on 22.06.15.
  */
-public class Rectangle extends Shape{
+public class Rectangle extends Shape {
     @Override
     public void draw(Graphics g) {
         printName();

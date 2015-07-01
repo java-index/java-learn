@@ -7,6 +7,7 @@ public class Main {
         try {
             test(i);
         } catch (MyPersonalExeption e) {
+            //e.printStackTrace();
             e.printStackTrace();
             System.out.println("get message " + e.getMessage());
         } finally {
