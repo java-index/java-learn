@@ -2,22 +2,40 @@ package LinkedList;
 
 import java.util.Objects;
 
-/**
- * Created by rabota on 01.07.15.
- */
 public class SimpeLinkedList {
-    Node root;
-    int size;
+    private Node root;
+    private int size;
 
-    public void addFirst(Object o){
-
+    public SimpeLinkedList(){
+        this.size = 0;
     }
 
-    public void addLast(Object o){
-
+    public void addFirst(Object obj){
+        Node n = new Node();
+        n.obj = obj;
+        if(root != null){
+            n.ref = root;
+        }
+        root = n;
+        size++;
     }
 
-    public void addAfter(Object o, Objects j){
+    public void addLast(Object obj) {
+        Node n = new Node();
+        n.obj = obj;
+        if (root == null) {
+            root = n;
+        } else {
+            Node last = root;
+            while(last.ref != null){
+                last = last.ref;
+            }
+            last.ref = n;
+        }
+        size++;
+    }
+
+    public void addAfter(Object addObj, Objects prev){
 
     }
 
@@ -25,8 +43,10 @@ public class SimpeLinkedList {
         return size;
     }
 
-
-
-
-
+    private class Node {
+        Object obj;
+        Node ref;
+    }
 }
+
+
