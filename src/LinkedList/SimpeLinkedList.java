@@ -22,7 +22,7 @@ public class SimpeLinkedList {
     }
 
     public int getSize(){
-        return size;;
+        return size;
     }
 
 
