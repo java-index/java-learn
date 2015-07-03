@@ -30,8 +30,7 @@ public class ClassRoom {
         }
 
 //        for(int i = 0; i < students.size(); i++){
-//            if (students.get(i).equals(new Student(firstName, secondName))){
-//            //if (students.get(i).getFirstName() == firstName && students.get(i).getSecondName() == secondName){
+//            if (students.get(i).getFirstName() == firstName && students.get(i).getSecondName() == secondName){
 //                return true;
 //            }
 //        }

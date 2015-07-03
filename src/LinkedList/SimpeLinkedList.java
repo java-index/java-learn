@@ -26,26 +26,64 @@ public class SimpeLinkedList {
         if (root == null) {
             root = n;
         } else {
-            Node last = root;
-            while(last.ref != null){
-                last = last.ref;
+            Node cp = root;
+            while(cp.ref != null){
+                cp = cp.ref;
             }
-            last.ref = n;
+            cp.ref = n;
         }
         size++;
     }
 
-    public void addAfter(Object addObj, Objects prev){
+    public void addAfter(Object obj, Object prev){
 
+        Node n = null;
+        Node cp = root;
+
+        for(int i = 0; i < size; i++){
+            if (cp.obj == prev){
+                n = new Node();
+                n.obj = obj;
+                n.ref = cp.ref;
+                cp.ref = n;
+                size++;
+                break;
+            }
+            cp = cp.ref;
+        }
+        if (n == null){
+            throw new IllegalStateException();
+        }
     }
 
     public int getSize(){
         return size;
     }
 
+    @Override
+    public String toString() {
+        Node cp = root;
+        String toString = new String("{");
+        for(int i = 0; i < size; i++){
+            toString += " " + cp.obj.toString();
+            cp = cp.ref;
+        }
+        toString += " }";
+        return toString;
+    }
+
     private class Node {
         Object obj;
         Node ref;
+    }
+    private class SLLIterator {
+        boolean hasNext(){
+
+        }
+
+        Node next(){
+
+        }
     }
 }
 
