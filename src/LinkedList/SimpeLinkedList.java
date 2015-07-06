@@ -1,8 +1,9 @@
 package LinkedList;
 
+import java.util.Iterator;
 import java.util.Objects;
 
-public class SimpeLinkedList {
+public class SimpeLinkedList implements Iterable<Object> {
     private Node root;
     private int size;
 
@@ -36,24 +37,40 @@ public class SimpeLinkedList {
     }
 
     public void addAfter(Object obj, Object prev){
-
-        Node n = null;
         Node cp = root;
-
-        for(int i = 0; i < size; i++){
-            if (cp.obj == prev){
-                n = new Node();
-                n.obj = obj;
-                n.ref = cp.ref;
-                cp.ref = n;
-                size++;
-                break;
-            }
+        while (cp != null && cp.obj != prev){
             cp = cp.ref;
         }
-        if (n == null){
+
+        if (cp == null){
             throw new IllegalStateException();
+        } else {
+            Node n = new Node();
+            n.obj = obj;
+            n.ref = cp.ref;
+            cp.ref = n;
+            size++;
         }
+    }
+
+    public void remove(Object obj){
+        Node cp = root;
+        Node prev = null;
+
+        while (cp != null && cp.obj != obj){
+            prev = cp;
+            cp = cp.ref;
+        }
+        if (cp == null){
+            throw new IllegalStateException("No ELEMENT");
+        } else if (cp == root) {
+            root = cp.ref;
+        } else {
+            prev.ref = cp.ref;
+            cp.obj = null;
+            cp.ref = null;
+        }
+        size--;
     }
 
     public int getSize(){
@@ -75,16 +92,34 @@ public class SimpeLinkedList {
     private class Node {
         Object obj;
         Node ref;
-    }
-    private class SLLIterator {
-        boolean hasNext(){
 
-        }
-
-        Node next(){
-
+        @Override
+        public String toString() {
+            return obj.toString();
         }
     }
-}
+
+    private class SLLIterator implements Iterator<Object> {
+        Node cp = root;
+
+        public boolean hasNext(){
+            return (cp == null)? false : true;
+        }
+
+        public Node next(){
+            if (cp == null){
+                throw new IllegalStateException("Object is NULL");
+            }
+            Node temp = cp;
+            cp = cp.ref;
+            return temp;
+        }
+    } // SSLIterator
+
+    @Override
+    public Iterator<Object> iterator() {
+        return new SLLIterator();
+    }
+} // SSL
 
 

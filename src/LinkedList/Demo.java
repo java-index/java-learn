@@ -1,5 +1,6 @@
 package LinkedList;
 
+import java.util.Iterator;
 import java.util.Objects;
 
 /**
@@ -14,12 +15,30 @@ public class Demo {
     public static void main(String[] args) {
         SimpeLinkedList myList = new SimpeLinkedList();
         myList.addFirst(one);
+        myList.addFirst(one);
         myList.addLast(two);
         myList.addLast(three);
         myList.addAfter(four, three);
         myList.addLast(one);
-        System.out.println(myList.getSize());
-        System.out.println(myList.toString());
-    }
 
+        for(Object s : myList){
+            System.out.println(s);
+        }
+
+        myList.remove(one);
+        myList.remove(two);
+
+        System.out.println("After REMOVED");
+        for(Object s : myList){
+            System.out.println(s);
+        }
+
+
+//        Iterator sslIterator = myList.iterator();
+//        System.out.println(sslIterator.next().toString() + "**");
+//
+//        while(sslIterator.hasNext()){
+//            System.out.println(sslIterator.next().toString());
+//        }
+    }
 }
