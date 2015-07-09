@@ -14,6 +14,5 @@ public class Demo {
         Person person5 = new Person("Roma5", 40, 1200L);
 
         HashMap<String, Person> map = new HashMap();
-        map.
     }
 }

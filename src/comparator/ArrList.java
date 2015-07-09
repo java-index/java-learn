@@ -1,8 +1,6 @@
 package comparator;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 /**
  * Created by rabota on 04.07.15.
@@ -25,6 +23,9 @@ public class ArrList {
     }
 
     public ArrayList<String> getMyStrList() {
+        HashMap<String, String> hm = new HashMap<>();
+        hm.put("0", "one");
+
         return myStrList;
     }
     
