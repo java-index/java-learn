@@ -10,6 +10,7 @@ public class ArrList {
 
     public ArrList(){
         myStrList = new ArrayList<>();
+        myStrList.sort();
     }
 
     public void addToList(String str){
@@ -23,9 +24,6 @@ public class ArrList {
     }
 
     public ArrayList<String> getMyStrList() {
-        HashMap<String, String> hm = new HashMap<>();
-        hm.put("0", "one");
-
         return myStrList;
     }
     

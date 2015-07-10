@@ -16,6 +16,11 @@ public class Person {
         this.salary = salary;
     }
 
+
+    public String getName() {
+        return name;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Person){
