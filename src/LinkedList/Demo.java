@@ -1,6 +1,8 @@
 package LinkedList;
 
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.ListIterator;
 import java.util.Objects;
 
 /**
@@ -13,6 +15,10 @@ public class Demo {
     static String four = new String("four");
 
     public static void main(String[] args) {
+        LinkedList<String> lls = new LinkedList<>();
+        //ListIterator<String> iList = lls.iterator();
+
+
         SimpeLinkedList myList = new SimpeLinkedList();
         myList.addFirst(one);
         myList.addFirst(one);

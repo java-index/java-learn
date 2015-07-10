@@ -1,6 +1,7 @@
 package comparator;
 
-import java.util.Arrays;
+import java.awt.*;
+import java.util.*;
 
 /**
  * Created by rabota on 04.07.15.
@@ -29,11 +30,25 @@ public class demo {
         list.addToList("Artem");
 
         list.printList();
-
         list.SortList();
-
         list.printList();
 
+        HashMap<String, String> stringHashMap = new HashMap<>();
+        stringHashMap.put("1", "Roma1");
+        stringHashMap.put("2", "Roma2");
+        stringHashMap.put("3", "Roma3");
+        stringHashMap.put(null, "Roma4");
+        stringHashMap.put(null, "Roma5");
 
+        Set<Map.Entry<String, String>> set = stringHashMap.entrySet();
+        for (Map.Entry e: set){
+            System.out.println(e.getValue() + " " + e.getKey());
+        }
+
+
+        Collection<String> str = stringHashMap.values();
+        for(String s: str){
+            System.out.println(s);
+        }
     }
 }

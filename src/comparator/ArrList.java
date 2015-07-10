@@ -10,7 +10,6 @@ public class ArrList {
 
     public ArrList(){
         myStrList = new ArrayList<>();
-        myStrList.sort();
     }
 
     public void addToList(String str){
