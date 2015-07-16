@@ -1,38 +1,25 @@
 package GRAPH;
 
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 /**
- * Created by rabota on 08.07.15.
+ * Created by rabota on 10.07.15.
  */
-public class Frame extends JPanel {
+public class Frame extends JFrame {
 
     public Frame(){
-        JFrame frame = new JFrame();
-        frame.setVisible(true);
-        frame.setLocation(100, 300);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        frame.getContentPane().add(this);
-
-        frame.pack();
-        frame.setMinimumSize(new Dimension(800, 600));
-
-        repaint();
+        super("MY PANEL");
+        setVisible(true);
+        setLocation(100, 300);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        pack();
+        setMinimumSize(new Dimension(800, 600));
     }
 
-    public static void main(String[] args) {
-        new Frame();
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        g.setColor(Color.GRAY);
-        g.drawRect(10, 10, 500, 500);
-
-        g.setColor(Color.lightGray);
-        g.drawRect(8, 8, 504, 504);
-    }
+//
+//    public <T extends JPanel> void getPanel(T p) {
+//        frame.add(p);
+//        p.repaint();
+//    }
 }
