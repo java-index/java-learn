@@ -149,7 +149,7 @@ public class GridBagLayoutExample_Extended {
 
     private static void createAndShowGUI() {
 
-        JFrame.setDefaultLookAndFeelDecorated(true);
+        JFrame.setDefaultLookAndFeelDecorated(false);
         JFrame frame = new JFrame("[=] GridBagLayout [=]");
 
         GridBagLayoutExample_Extended demo = new GridBagLayoutExample_Extended();
