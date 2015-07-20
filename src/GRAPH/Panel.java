@@ -20,9 +20,8 @@ public class Panel extends JPanel {
 //        g.setColor(Color.GRAY);
 //        g.fillRect(0, 0, getWidth(), getHeight());
 
-
         if(this.image != null){
-            g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
+            g.drawImage(image, 0, 0, 300, 200, null);
         }
     }
 }

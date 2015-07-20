@@ -1,5 +1,7 @@
 package Shapes;
 
+import java.awt.event.ActionListener;
+
 public class Launcher {
     public static void main(String[] args){
         Drawable [] shapes = new Shape[4];
@@ -10,7 +12,7 @@ public class Launcher {
         shapes[2] = new Triangle();
         shapes[3] = new Square();
 
-        new ShapesTemplate(shapes);
+        Rectangle rec = (Rectangle)shapes[1];
 
     }
 }

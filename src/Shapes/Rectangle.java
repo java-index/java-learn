@@ -2,10 +2,11 @@ package Shapes;
 
 import java.awt.*;
 
-/**
- * Created by eco on 22.06.15.
- */
 public class Rectangle extends Shape {
+
+    Rectangle(){
+
+    }
     @Override
     public void draw(Graphics g) {
         printName();
@@ -14,4 +15,5 @@ public class Rectangle extends Shape {
         g.setColor(new Color(167, 255, 185));
         g.fillRect(10, 10, 300, 50);
     }
+
 }
