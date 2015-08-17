@@ -17,11 +17,8 @@ public class Panel extends JPanel {
     protected void paintComponent(Graphics g) {
 
         super.paintComponent(g);
-//        g.setColor(Color.GRAY);
-//        g.fillRect(0, 0, getWidth(), getHeight());
-
         if(this.image != null){
-            g.drawImage(image, 0, 0, 300, 200, null);
+            g.drawImage(image, 0, 0, 205, 237, null);
         }
     }
 }

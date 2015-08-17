@@ -15,8 +15,7 @@ public class Demo {
     public static void main(String[] args) {
         Frame f = new Frame();
         Panel p = new Panel();
-        //p.add(new Label("HELLO"));
-        //p.add(new Label("WORD"));
+
         try {
             p.setImage(ImageIO.read(new File("test.png")));
         } catch (IOException e){
