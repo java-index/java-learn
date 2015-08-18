@@ -10,7 +10,11 @@ public class Box<T extends Bird> {
         this.item = new ArrayList<>();
     }
 
-    public T getItem(int index){
+    public List<T> getItem() {
+        return item;
+    }
+
+    public T getItemByIndex(int index){
         return item.get(index);
     }
 
