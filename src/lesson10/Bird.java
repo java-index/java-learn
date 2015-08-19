@@ -1,13 +1,13 @@
 package lesson10;
 
+import java.util.Comparator;
+
 /**
  * Created by eco on 17.08.15.
  */
 public abstract class Bird {
     private String name;
     private Double price;
-
-    public Bird(){}
 
     public Bird(String name, Double price){
         this.name = name;
@@ -28,5 +28,10 @@ public abstract class Bird {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Name: " + this.name + "; price: " + this.price;
     }
 }
