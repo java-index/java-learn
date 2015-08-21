@@ -9,10 +9,7 @@ public abstract class Bird {
     private String name;
     private Double price;
 
-    public Bird(String name, Double price){
-        this.name = name;
-        this.price = price;
-    }
+    public Bird(){}
 
     public String getName() {
         return this.name;

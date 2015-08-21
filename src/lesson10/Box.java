@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Box<T extends Bird> {
+
     List<T> item;
 
     public Box(){
@@ -33,9 +34,9 @@ public class Box<T extends Bird> {
         }
     }
 
-    private class CompareByName implements Comparator<Bird> {
+    private class CompareByName implements Comparator<T> {
         @Override
-        public int compare(Bird o1, Bird o2) {
+        public int compare(T o1, T o2) {
             return o1.getName().compareTo(o2.getName());
         }
     }
