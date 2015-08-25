@@ -1,12 +1,16 @@
 class Test{
-        public static int END = Integer.MAX_VALUE;
-        public static int START = END - 10;
+    public static void main(String[] args) {
+        double i = 1.0 / 0;
+        double z = -0.0;
+        double x = +0.0;
+        System.out.println(z == x);
 
-        public static void main(String[] args) {
-            int count = 0;
-            for (long i = START; i <= END; i++) {
-                count++;
-            }
-            System.out.println(count);
-        }
+        System.out.println(i);
+//          System.out.println(i == i + 1);
+//        int y = 0;
+//        for (int i = 0; i < 5; i++){
+//            y = y + y++;
+//        }
+//        System.out.println(y);
     }
+}
