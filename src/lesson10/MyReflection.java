@@ -1,10 +1,6 @@
 package lesson10;
 
-import com.sun.istack.internal.NotNull;
-import edu.umd.cs.findbugs.annotations.NonNull;
 import org.junit.Test;
-
-import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;

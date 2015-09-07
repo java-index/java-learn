@@ -8,23 +8,16 @@ public class MyArchiver {
     private File source;
     private ZipInputStream zis;
 
-    public MyArchiver(File source){
-        this.source = source;
-    }
+    public static void main(String[] args) throws IOException  {
 
-    public void addFileToZip(){
-        try(
-                BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(source));
-                ZipOutputStream zos = new ZipOutputStream(bos);
-        ){
+        FileOutputStream fos = new FileOutputStream("test.txt");
+        BufferedOutputStream bos = new BufferedOutputStream(fos);
 
-
-        } catch (IOException e){
-            e.printStackTrace();
+        for(int i = 0; i < Integer.MAX_VALUE/2; i++){
+            bos.write(i);
         }
+
+        bos.close();
     }
 
-    public void getFileFromZip(){
-
-    }
 }

@@ -1,7 +1,5 @@
 package io;
 
-import com.google.common.base.Charsets;
-
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
