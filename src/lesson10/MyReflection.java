@@ -1,7 +1,10 @@
 package lesson10;
 
+import com.sun.istack.internal.NotNull;
+import edu.umd.cs.findbugs.annotations.NonNull;
 import org.junit.Test;
 
+import javax.annotation.Nonnull;
 import javax.swing.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -37,22 +40,27 @@ public abstract class MyReflection {
         return object;
     }
 
+    public <T extends InfoService> T method(T obj){
+        return obj;
+    }
+
     public static void main(String[] args) throws Exception {
-        InfoService.printClassInfo(ForInstance.class);
-        InfoService.printMethods(ForInstance.class);
-        InfoService.printFields(ForInstance.class);
+//        InfoService.printClassInfo(ForInstance.class);
+//        InfoService.printMethods(ForInstance.class);
+//        InfoService.printFields(ForInstance.class);
+
 //        Map<String, String> map = new HashMap<>();
 //        map.put("setName1", "name1");
 //        map.put("setName2", "name2");
 //        map.put("setName3", "name3");
 //        //ForInstance forInstance = (ForInstance)initClass(ForInstance.class, map);
 //
-//        List<ParamType> listParamType = new ArrayList<>();
-//        listParamType.add(new ParamType(new Class[]{String.class}, new Object[]{"STRING"}));
-//        listParamType.add(new ParamType(new Class[]{String.class, int.class}, new Object[]{"STRING", new Integer(0)}));
-//        listParamType.add(new ParamType(new Class[]{String.class, double.class}, new Object[]{"STRING", new Double(0.0)}));
+        List<ParamType> listParamType = new ArrayList<>();
+        listParamType.add(new ParamType(new Class[]{String.class}, new Object[]{"STRING"}));
+        listParamType.add(new ParamType(new Class[]{String.class, int.class}, new Object[]{"STRING", 5}));
+        listParamType.add(new ParamType(new Class[]{String.class, double.class}, new Object[]{"STRING", 0.0}));
 //
-//        initClassByConstructor(ForInstance.class, listParamType);
+        initClassByConstructor(ForInstance.class, listParamType);
 //
 //        Map<String, String> mapSetPrivate = new HashMap<>();
 //        mapSetPrivate.put("name1", "name1 - set private");

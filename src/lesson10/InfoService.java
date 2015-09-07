@@ -1,6 +1,8 @@
 package lesson10;
 import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
+import edu.umd.cs.findbugs.annotations.NonNull;
 
+import javax.annotation.Nonnull;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -21,7 +23,7 @@ public class InfoService {
         }
     }
 
-    public static void printMethods(Class clazz){
+    public static void printMethods(@Nonnull Class clazz){
         Method[] methods = clazz.getMethods();
         System.out.println("Class has public methods:");
         for(Method m : methods){

@@ -5,7 +5,7 @@ import GRAPH.Panel;
 import javax.swing.*;
 import java.awt.*;
 
-public class BirdsShopUI {
+public class BirdsShopUI  {
     BirdsShop bs;
 
     public BirdsShopUI(BirdsShop bs) {
