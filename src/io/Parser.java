@@ -47,35 +47,25 @@ public class Parser {
                 BufferedInputStream bif = new BufferedInputStream(fis);
                 ZipInputStream zis = new ZipInputStream(bif);
         ){
-            if (!file.exists() || !file.getName().endsWith(".zip") || file.isDirectory() || !file.canRead()) {
-                throw new FileNotFoundException();
-            }
 
             byte [] buffer = new byte[4096];
 
-            long start = System.currentTimeMillis();
-            System.out.println(start);
-
             while((ze = zis.getNextEntry()) != null){
-                System.out.println(ze.getName());
-                FileOutputStream fos = new FileOutputStream(ze.getName());
-                BufferedOutputStream bos = new BufferedOutputStream(fos);
-                int c = 0;
-                while ((c = zis.read(buffer))!= -1) {
-                    bos.write(buffer, 0, c);
+                try(FileOutputStream fos = new FileOutputStream(ze.getName())) {
+                    int c = 0;
+                    while ((c = zis.read(buffer)) != -1) {
+                        fos.write(buffer, 0, c);
+                    }
+                    zis.closeEntry();
+                    fos.close();
+                } catch (IOException e){
+                    e.printStackTrace();
                 }
-                zis.closeEntry();
-                bos.close();
             }
-
-            System.out.println(System.currentTimeMillis() - start);
-
         } catch (FileNotFoundException fe){
             printErrorMessage(file.getName());
         } catch (IOException ioe) {
-            printErrorMessage("Error");
-        } finally {
-
+            ioe.printStackTrace();
         }
     }
 
