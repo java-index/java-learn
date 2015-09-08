@@ -19,10 +19,8 @@ public class Parser {
             printHelpMessage();
             System.exit(0);
         }
-
         String typeOperation = args[0];
-        String fileName = args[1];
-        File file = new File(fileName);
+        File file = new File(args[1]);
 
         switch (typeOperation) {
             case "zip":
@@ -38,47 +36,77 @@ public class Parser {
     }
 
     private void unzip(File file) {
-        System.out.println("unzipping -" + file.getName());
-        //String dir = file.getName().s
-        ZipEntry ze = null;
-
         try (
                 FileInputStream fis = new FileInputStream(file);
-                BufferedInputStream bif = new BufferedInputStream(fis);
-                ZipInputStream zis = new ZipInputStream(bif);
-        ){
-
-            byte [] buffer = new byte[4096];
-
-            while((ze = zis.getNextEntry()) != null){
-                try(FileOutputStream fos = new FileOutputStream(ze.getName())) {
-                    int c = 0;
-                    while ((c = zis.read(buffer)) != -1) {
-                        fos.write(buffer, 0, c);
-                    }
-                    zis.closeEntry();
-                    fos.close();
-                } catch (IOException e){
-                    e.printStackTrace();
-                }
-            }
-        } catch (FileNotFoundException fe){
-            printErrorMessage(file.getName());
+                ZipInputStream zis = new ZipInputStream(fis);
+        ) {
+            String dirName = createDir(file);
+            processUnzip(file, dirName, zis);
+        } catch (CanNotCreateDir eDir) {
+            printMessage("Can not create directory for unzipped files");
+        } catch (FileNotFoundException fe) {
+            printMessage(file.getName() + " not found or corrupted");
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
     }
 
+    private void processUnzip(File file, String dirName, ZipInputStream zis) throws IOException {
+        ZipEntry ze = null;
+        byte[] buffer = new byte[4096];
+        int count = 0;
+        while ((ze = zis.getNextEntry()) != null) {
+            try (FileOutputStream fos = new FileOutputStream(dirName + File.separator + ze.getName())) {
+                int c = 0;
+                while ((c = zis.read(buffer)) != -1) {
+                    fos.write(buffer, 0, c);
+                }
+                printMessage(ze.getName() + " unzipped");
+            } catch (IOException e) {
+                throw new FileNotFoundException();
+            } finally {
+                zis.closeEntry();
+            }
+        }
+    }
+
+    private String createDir(File file) throws IOException {
+        String dirName = file.getName().substring(0, file.getName().indexOf('.'));
+        File dir = new File(dirName);
+        if (!dir.exists() && !dir.mkdir()) {
+            throw new CanNotCreateDir();
+        } else {
+            return dirName;
+        }
+    }
+
     private void zip(File file) {
         System.out.println("zipping - " + file.getName());
+        if (file.isDirectory()) {
+            addDirToArchive(file);
+        } else {
+            System.out.println("add files");
+            addFileToArchive(file);
+        }
+    }
+
+    private void addDirToArchive(File file){
+        String [] listFiles = file.list();
+        for(String s : listFiles){
+            System.out.println(s);
+            System.out.println(file.getAbsolutePath());
+        }
+    }
+
+    private void  addFileToArchive(File file){
     }
 
     private void printHelpMessage() {
-        System.out.println("Usage: zip.jar [zip/unzip] [file/dir name]");
+        System.out.println("Usage: zip.jar [zip/unzip] [dir name/file]");
     }
 
-    private void printErrorMessage(String namefile) {
-        System.out.println(namefile + " is not found or corrupted");
+    private void printMessage(String message) {
+        System.out.println(message);
     }
 
 }
