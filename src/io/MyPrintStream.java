@@ -1,5 +1,8 @@
 package io;
 
+import sun.nio.cs.StreamDecoder;
+import sun.nio.cs.StreamEncoder;
+
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
@@ -97,21 +100,25 @@ public class MyPrintStream {
                 BufferedInputStream bufInputStream = new BufferedInputStream(new FileInputStream(file));
                 BufferedOutputStream bufOutStream = new BufferedOutputStream(new FileOutputStream(temp));
 
-                InputStreamReader readerStream = new InputStreamReader(bufInputStream, currentEncoding);
+                StreamDecoder readerStream = StreamDecoder.forInputStreamReader(bufInputStream, bufInputStream, currentEncoding);
                 OutputStreamWriter writerStream = new OutputStreamWriter(bufOutStream, neededEncoding);
 
             )
-        {
+        {git
             int i = 0;
             while((i = readerStream.read()) != -1){
+                System.out.println((char)i);
                 writerStream.write((char)i);
             }
 
             file.delete();
             temp.renameTo(file);
+            readerStream.close();
+
+        } catch (UnsupportedEncodingException e){
 
         } catch (IOException e){
                 e.printStackTrace();
-            }
+        }
     }
 }
