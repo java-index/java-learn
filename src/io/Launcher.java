@@ -8,8 +8,8 @@ import java.io.File;
 public class Launcher {
 
     public static void main(String[] args) {
-        Parser parser = new Parser();
-        parser.process(args);
+        Archiver archiver = new Archiver();
+        archiver.process(args);
     }
 }
 

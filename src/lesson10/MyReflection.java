@@ -1,7 +1,5 @@
 package lesson10;
 
-import org.junit.Test;
-import javax.swing.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

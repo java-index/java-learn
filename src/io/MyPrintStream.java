@@ -104,7 +104,7 @@ public class MyPrintStream {
                 OutputStreamWriter writerStream = new OutputStreamWriter(bufOutStream, neededEncoding);
 
             )
-        {git
+        {
             int i = 0;
             while((i = readerStream.read()) != -1){
                 System.out.println((char)i);
