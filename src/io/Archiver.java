@@ -46,14 +46,14 @@ public class Archiver {
             File unZipDir = createDir(file);
             processUnzip(unZipDir, zis);
 
-        } catch (CanNotCreateDir eDir) {
+        } catch (CanNotCreateDir e) {
             printMessage("Can not create directory for unzipped files");
-            eDir.printStackTrace();
-        } catch (FileNotFoundException fe) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
             printMessage(file + " not found or corrupted");
-            fe.printStackTrace();
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -151,7 +151,7 @@ public class Archiver {
     }
 
     private String getNameWithOutExtension(File file){
-        return file.getName().substring(0, file.getName().indexOf('.'));
+        return file.getName().substring(0, file.getName().lastIndexOf('.'));
     }
 
 }
